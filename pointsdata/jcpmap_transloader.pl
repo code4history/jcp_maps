@@ -43,7 +43,7 @@ foreach my $file (sort @file) {
         while (my $line=<$fh>) {
             my @devide = split(/,/,$line);
             next if ($devide[0] !~ /^\d/);
-            if ($devide[0] =~ /^1111\./ && $devide[1] =~ /^1111\./) {
+            if ($devide[0] =~ /^1111($|\.)/ && $devide[1] =~ /^1111($|\.)/) {
                 push @outlines, [$devide[2],  $devide[3]*-1];
             } else {
                 my   @gcp  = (@devide[0..2],$devide[3]*-1);
